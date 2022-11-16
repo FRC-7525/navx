@@ -38,10 +38,6 @@ public class Robot extends TimedRobot {
   public static Victor motor3 = new Victor(3);
   public static Victor motor4 = new Victor(4);
 
-  
-  
-
-
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -62,10 +58,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-
-    SmartDashboard.putNumber(ANGLE, navx.getAngle());
-    cAngle = SmartDashboard.getNumber(ANGLE, cAngle);
-
+    cAngle = navx.getAngle();
+    SmartDashboard.putNumber(ANGLE, cAngle);
   }
   
   
@@ -82,15 +76,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
-    timer.reset();
-    timer.start();
-
-    
-
-
   }
 
   /** This function is called periodically during autonomous. */
